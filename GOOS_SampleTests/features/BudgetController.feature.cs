@@ -70,10 +70,12 @@ namespace GOOS_SampleTests.Features
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add a budget record")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BudgetController")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("CleanBudgets")]
         public virtual void AddABudgetRecord()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a budget record", ((string[])(null)));
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a budget record", new string[] {
+                        "CleanBudgets"});
+#line 4
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -82,9 +84,9 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "2000",
                         "2017-02"});
-#line 4
+#line 5
  testRunner.When("add a budget", ((string)(null)), table1, "When ");
-#line 7
+#line 8
  testRunner.Then("ViewBag should have a message for adding successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -93,7 +95,7 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "2000",
                         "2017-02"});
-#line 8
+#line 9
  testRunner.And("it should exist a budget record in budget table", ((string)(null)), table2, "And ");
 #line hidden
             this.ScenarioCleanup();

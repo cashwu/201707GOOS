@@ -1,5 +1,6 @@
 ﻿Feature: BudgetController
 
+@CleanBudgets
 Scenario: Add a budget record
 	When add a budget
 	| Amount | Month   |
