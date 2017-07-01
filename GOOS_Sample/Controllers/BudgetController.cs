@@ -10,6 +10,17 @@ namespace GOOS_Sample.Controllers
 {
     public class BudgetController : Controller
     {
+        private IBudgetServices budgetServices;
+
+        public BudgetController()
+        {
+        }
+
+        public BudgetController(IBudgetServices budgetServices)
+        {
+            this.budgetServices = budgetServices;
+        }
+
         // GET: Budget
         public ActionResult Add()
         {
@@ -19,17 +30,17 @@ namespace GOOS_Sample.Controllers
         [HttpPost]
         public ActionResult Add(BudgetAddViewModel model)
         {
-            using (var db = new NorthwindEntities())
-            {
-                var budget = new Budgets
-                {
-                    Amount = model.Amount,
-                    YearMonth = model.Month
-                };
+            //using (var db = new NorthwindEntities())
+            //{
+            //    var budget = new Budgets
+            //    {
+            //        Amount = model.Amount,
+            //        YearMonth = model.Month
+            //    };
 
-                db.Budgets.Add(budget);
-                db.SaveChanges();
-            }
+            //    db.Budgets.Add(budget);
+            //    db.SaveChanges();
+            //}
 
             ViewBag.Message = "added successfully";
             return View(model);
