@@ -14,13 +14,28 @@ namespace GOOS_Sample.Models
 
         public void Create(BudgetAddViewModel model)
         {
-            var budget = new Budgets
-            {
-                Amount = model.Amount,
-                YearMonth = model.Month
-            };
+            var budget = this.budgetRepository.Read(a => a.YearMonth == model.Month);
 
-            budgetRepository.Save(budget);
+            if (budget == null)
+            {
+                budgetRepository.Save(new Budgets
+                {
+                    Amount = model.Amount,
+                    YearMonth = model.Month
+                });
+
+                var handler = this.Created;
+                handler?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                budget.Amount = model.Amount;
+
+                this.budgetRepository.Save(budget);
+
+                var handler = this.Updated;
+                handler?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public event EventHandler Created;

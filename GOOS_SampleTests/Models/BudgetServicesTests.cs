@@ -33,7 +33,6 @@ namespace GOOS_SampleTests.Models
             budgetRepositoryStub.Received().Save(Arg.Is<Budgets>(a => a.Amount == 2000 && a.YearMonth == "2017-02"));
         }
 
-
         [TestMethod()]
         public void CreateTest_when_exist_record_should_update_budget()
         {

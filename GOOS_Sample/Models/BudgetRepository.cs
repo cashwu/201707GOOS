@@ -13,7 +13,7 @@ namespace GOOS_Sample.Models
             }
         }
 
-        public Budgets Read(Func<Budgets, bool> any)
+        public Budgets Read(Func<Budgets, bool> predicate)
         {
             throw new NotImplementedException();
         }
