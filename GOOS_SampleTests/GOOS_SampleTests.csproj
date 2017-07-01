@@ -155,6 +155,7 @@
     <Compile Include="DataModelsForTest\Budgets.cs">
       <DependentUpon>BudgetModelForTest.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BudgetServicesTests.cs" />
     <Compile Include="steps\BudgetControllerSteps.cs" />
     <Compile Include="features\BudgetController.feature.cs">
       <AutoGen>True</AutoGen>
