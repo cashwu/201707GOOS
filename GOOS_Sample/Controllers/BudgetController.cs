@@ -12,11 +12,6 @@ namespace GOOS_Sample.Controllers
     {
         private IBudgetServices budgetServices;
 
-        public BudgetController()
-        {
-            budgetServices = new BudgetServices();
-        }
-
         public BudgetController(IBudgetServices budgetServices)
         {
             this.budgetServices = budgetServices;
