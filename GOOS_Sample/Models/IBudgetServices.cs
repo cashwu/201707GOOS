@@ -4,6 +4,6 @@ namespace GOOS_Sample.Models
 {
     public interface IBudgetServices
     {
-        void Create(BudgetAddViewModel budget);
+        void Create(BudgetAddViewModel model);
     }
 }
