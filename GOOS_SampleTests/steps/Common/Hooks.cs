@@ -32,10 +32,10 @@ namespace GOOS_SampleTests.steps.Common
 
         public static void CleanTableByTags()
         {
-
             var tags = ScenarioContext.Current.ScenarioInfo.Tags
                 .Where(x => x.StartsWith("Clean"))
-                .Select(x => x.Replace("Clean", ""));
+                .Select(x => x.Replace("Clean", ""))
+                .ToList();
 
             if (!tags.Any())
             {
