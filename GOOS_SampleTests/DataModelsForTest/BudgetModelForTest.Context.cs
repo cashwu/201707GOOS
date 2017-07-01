@@ -13,10 +13,10 @@ namespace GOOS_SampleTests.DataModelsForTest
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NorthwindEntities : DbContext
+    public partial class NorthwindEntitiesForTest : DbContext
     {
-        public NorthwindEntities()
-            : base("name=NorthwindEntities")
+        public NorthwindEntitiesForTest()
+            : base("name=NorthwindEntitiesForTest")
         {
         }
     

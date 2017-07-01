@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="NorthwindModelForTest.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Budgets">
           <Key>
             <PropertyRef Name="YearMonth" />
@@ -12,14 +12,14 @@
           <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="YearMonth" Type="varchar" MaxLength="7" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="NorthwindModelStoreContainer">
+        <EntityContainer Name="NorthwindModelForTestStoreContainer">
           <EntitySet Name="Budgets" EntityType="Self.Budgets" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="NorthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="NorthwindModelForTest" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Budgets">
           <Key>
             <PropertyRef Name="YearMonth" />
@@ -27,7 +27,7 @@
           <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="YearMonth" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NorthwindEntitiesForTest" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Budgets" EntityType="Self.Budgets" />
         </EntityContainer>
       </Schema>
@@ -35,9 +35,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+        <EntityContainerMapping StorageEntityContainer="NorthwindModelForTestStoreContainer" CdmEntityContainer="NorthwindEntitiesForTest">
           <EntitySetMapping Name="Budgets">
-            <EntityTypeMapping TypeName="NorthwindModel.Budgets">
+            <EntityTypeMapping TypeName="NorthwindModelForTest.Budgets">
               <MappingFragment StoreEntitySet="Budgets">
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="YearMonth" ColumnName="YearMonth" />

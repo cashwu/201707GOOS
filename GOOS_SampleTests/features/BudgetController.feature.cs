@@ -89,7 +89,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Amount",
-                        "Month"});
+                        "YearMonth"});
             table2.AddRow(new string[] {
                         "2000",
                         "2017-02"});

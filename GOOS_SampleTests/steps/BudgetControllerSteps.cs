@@ -44,11 +44,11 @@ namespace GOOS_SampleTests.steps
         [Then(@"it should exist a budget record in budget table")]
         public void ThenItShouldExistABudgetRecordInBudgetTable(Table table)
         {
-            using (var db = new NorthwindEntities())
+            using (var db = new NorthwindEntitiesForTest())
             {
-                var budgrt = db.Budgets.FirstOrDefault();
-                budgrt.Should().NotBeNull();
-                table.CompareToInstance(budgrt);
+                var budget = db.Budgets.FirstOrDefault();
+                budget.Should().NotBeNull();
+                table.CompareToInstance(budget);
             }
         }
     }

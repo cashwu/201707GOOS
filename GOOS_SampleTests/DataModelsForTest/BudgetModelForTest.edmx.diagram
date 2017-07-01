@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1e9063f7881f40978443cdbd19e5587a" Name="Diagram1">
-        <EntityTypeShape EntityType="NorthwindModel.Budgets" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="4f812ec89a0e414aaca81172c7696c18" Name="Diagram1">
+        <EntityTypeShape EntityType="NorthwindModelForTest.Budgets" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

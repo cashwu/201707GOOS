@@ -121,23 +121,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModelsForTest\BudgetModel.Context.cs">
+    <Compile Include="DataModelsForTest\BudgetModelForTest.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BudgetModel.Context.tt</DependentUpon>
+      <DependentUpon>BudgetModelForTest.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModelsForTest\BudgetModel.cs">
+    <Compile Include="DataModelsForTest\BudgetModelForTest.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BudgetModel.tt</DependentUpon>
+      <DependentUpon>BudgetModelForTest.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModelsForTest\BudgetModel.Designer.cs">
+    <Compile Include="DataModelsForTest\BudgetModelForTest.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataModelsForTest\Budgets.cs">
-      <DependentUpon>BudgetModel.tt</DependentUpon>
+      <DependentUpon>BudgetModelForTest.tt</DependentUpon>
     </Compile>
     <Compile Include="steps\BudgetControllerSteps.cs" />
     <Compile Include="features\BudgetController.feature.cs">
@@ -158,24 +158,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
-    <Content Include="DataModelsForTest\BudgetModel.Context.tt">
+    <Content Include="DataModelsForTest\BudgetModelForTest.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BudgetModel.Context.cs</LastGenOutput>
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
+      <LastGenOutput>BudgetModelForTest.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DataModelsForTest\BudgetModel.tt">
+    <Content Include="DataModelsForTest\BudgetModelForTest.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
-      <LastGenOutput>BudgetModel.cs</LastGenOutput>
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
+      <LastGenOutput>BudgetModelForTest.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DataModelsForTest\BudgetModel.edmx">
+    <EntityDeploy Include="DataModelsForTest\BudgetModelForTest.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BudgetModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BudgetModelForTest.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataModelsForTest\BudgetModel.edmx.diagram">
-      <DependentUpon>BudgetModel.edmx</DependentUpon>
+    <None Include="DataModelsForTest\BudgetModelForTest.edmx.diagram">
+      <DependentUpon>BudgetModelForTest.edmx</DependentUpon>
     </None>
     <None Include="features\BudgetController.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
