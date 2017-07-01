@@ -181,6 +181,7 @@
     <Compile Include="Models\Budgets.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BudgetServices.cs" />
     <Compile Include="Models\IBudgetServices.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
