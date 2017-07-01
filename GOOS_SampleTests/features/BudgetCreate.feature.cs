@@ -110,7 +110,7 @@ this.ScenarioSetup(scenarioInfo);
                         "999",
                         "2017-10"});
 #line 14
- testRunner.And("Budget table existed budgets", ((string)(null)), table1, "And ");
+ testRunner.And("Budget table existed budget", ((string)(null)), table1, "And ");
 #line 17
  testRunner.When("I add a buget 2000 for \"2017-10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18

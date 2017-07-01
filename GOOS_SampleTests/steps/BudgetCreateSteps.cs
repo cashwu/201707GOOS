@@ -38,17 +38,5 @@ namespace GOOS_SampleTests.steps
         {
             this._budgetCreatePage.ShouldDisplay(message);
         }
-
-        [Given(@"Budget table existed budgets")]
-        public void GivenBudgetTableExistedBudgets(Table table)
-        {
-            var budgets = table.CreateInstance<Budgets>();
-            using (var db = new NorthwindEntitiesForTest())
-            {
-                db.Budgets.Add(budgets);
-                db.SaveChanges();
-            }
-        }
-
     }
 }

@@ -16,6 +16,7 @@ namespace GOOS_SampleTests.steps
     public class BudgetControllerSteps
     {
         private BudgetController _budgetController;
+        private readonly InsertTable insertTable = new InsertTable();
 
         [BeforeScenario]
         public void BeforeScenario()
@@ -53,6 +54,19 @@ namespace GOOS_SampleTests.steps
                 budget.Should().NotBeNull();
                 table.CompareToInstance(budget);
             }
+        }
+
+        [Then(@"ViewBag should have a message for updated successfully")]
+        public void ThenViewBagShouldHaveAMessageForUpdatedSuccessfully()
+        {
+            var result = ScenarioContext.Current.Get<ActionResult>() as ViewResult;
+            string message = result.ViewBag.Message;
+            message.Should().Be(GetUpdatingSuccessfullyMessage());
+        }
+
+        private static string GetUpdatingSuccessfullyMessage()
+        {
+            return "updated successfully";
         }
     }
 }
