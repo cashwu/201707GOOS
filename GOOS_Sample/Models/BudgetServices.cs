@@ -1,4 +1,5 @@
-﻿using GOOS_Sample.Models.ViewModels;
+﻿using System;
+using GOOS_Sample.Models.ViewModels;
 
 namespace GOOS_Sample.Models
 {
@@ -21,5 +22,8 @@ namespace GOOS_Sample.Models
 
             budgetRepository.Save(budget);
         }
+
+        public event EventHandler Created;
+        public event EventHandler Updated;
     }
 }

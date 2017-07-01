@@ -27,7 +27,6 @@ namespace GOOS_SampleTests.steps
         [When(@"I add a buget (.*) for ""(.*)""")]
         public void WhenIAddABugetFor(int amount, string yearMonth)
         {
-
             this._budgetCreatePage
                 .Amount(amount)
                 .Month(yearMonth)

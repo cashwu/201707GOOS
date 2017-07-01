@@ -1,4 +1,6 @@
-﻿namespace GOOS_Sample.Models
+﻿using System;
+
+namespace GOOS_Sample.Models
 {
     public class BudgetRepository : IRepository<Budgets>
     {
@@ -9,6 +11,11 @@
                 db.Budgets.Add(budget);
                 db.SaveChanges();
             }
+        }
+
+        public Budgets Read(Func<Budgets, bool> any)
+        {
+            throw new NotImplementedException();
         }
     }
 }

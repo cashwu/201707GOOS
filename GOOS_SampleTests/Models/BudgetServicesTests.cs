@@ -32,5 +32,23 @@ namespace GOOS_SampleTests.Models
 
             budgetRepositoryStub.Received().Save(Arg.Is<Budgets>(a => a.Amount == 2000 && a.YearMonth == "2017-02"));
         }
+
+
+        [TestMethod()]
+        public void CreateTest_when_exist_record_should_update_budget()
+        {
+            this.budgetServices = new BudgetServices(budgetRepositoryStub);
+            var budgetFromDb = new Budgets { Amount = 999, YearMonth = "2017-02" };
+
+            budgetRepositoryStub.Read(Arg.Any<Func<Budgets, bool>>())
+                .ReturnsForAnyArgs(budgetFromDb);
+
+            var model = new BudgetAddViewModel { Amount = 2000, Month = "2017-02" };
+
+            this.budgetServices.Create(model);
+
+            budgetRepositoryStub.Received()
+                .Save(Arg.Is<Budgets>(x => x == budgetFromDb && x.Amount == 2000));
+        }
     }
 }
