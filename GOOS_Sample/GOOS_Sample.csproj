@@ -194,6 +194,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BudgetRepository.cs" />
     <Compile Include="Models\Budgets.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

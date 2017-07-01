@@ -20,17 +20,6 @@ namespace GOOS_Sample.Models
             };
 
             budgetRepository.Save(budget);
-            //using (var db = new NorthwindEntities())
-            //{
-            //    var budget = new Budgets
-            //    {
-            //        Amount = model.Amount,
-            //        YearMonth = model.Month
-            //    };
-
-            //    db.Budgets.Add(budget);
-            //    db.SaveChanges();
-            //}
         }
     }
 }
