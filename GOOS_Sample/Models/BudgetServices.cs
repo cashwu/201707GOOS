@@ -13,17 +13,24 @@ namespace GOOS_Sample.Models
 
         public void Create(BudgetAddViewModel model)
         {
-            using (var db = new NorthwindEntities())
+            var budget = new Budgets
             {
-                var budget = new Budgets
-                {
-                    Amount = model.Amount,
-                    YearMonth = model.Month
-                };
+                Amount = model.Amount,
+                YearMonth = model.Month
+            };
 
-                db.Budgets.Add(budget);
-                db.SaveChanges();
-            }
+            budgetRepository.Save(budget);
+            //using (var db = new NorthwindEntities())
+            //{
+            //    var budget = new Budgets
+            //    {
+            //        Amount = model.Amount,
+            //        YearMonth = model.Month
+            //    };
+
+            //    db.Budgets.Add(budget);
+            //    db.SaveChanges();
+            //}
         }
     }
 }
