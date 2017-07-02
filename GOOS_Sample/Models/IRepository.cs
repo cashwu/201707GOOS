@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GOOS_Sample.Models
 {
@@ -6,5 +7,6 @@ namespace GOOS_Sample.Models
     {
         void Save(T budget);
         T Read(Func<T, bool> predicate);
+        List<T> ReadAll();
     }
 }

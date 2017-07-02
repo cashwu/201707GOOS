@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GOOS_Sample.Models
@@ -30,6 +31,11 @@ namespace GOOS_Sample.Models
             {
                 return db.Budgets.FirstOrDefault(predicate);
             }
+        }
+
+        public List<Budgets> ReadAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }
