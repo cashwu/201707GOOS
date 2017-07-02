@@ -32,5 +32,17 @@ namespace GOOS_Sample.Controllers
             //ViewBag.Message = "added successfully";
             return View(model);
         }
+
+        public ActionResult Query()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Query(BudgetQueryViewModel model)
+        {
+            model.Amount = 10000;
+            return View(model);
+        }
     }
 }
