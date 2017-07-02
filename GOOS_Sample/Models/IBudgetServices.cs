@@ -8,5 +8,6 @@ namespace GOOS_Sample.Models
         void Create(BudgetAddViewModel model);
         event EventHandler Created;
         event EventHandler Updated;
+        decimal TotalBudget(Period period);
     }
 }

@@ -218,6 +218,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Period.cs" />
     <Compile Include="Models\ViewModels\BudgetAddViewModel.cs" />
     <Compile Include="Models\ViewModels\BudgetQueryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

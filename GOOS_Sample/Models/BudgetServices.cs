@@ -40,5 +40,10 @@ namespace GOOS_Sample.Models
 
         public event EventHandler Created;
         public event EventHandler Updated;
+
+        public decimal TotalBudget(Period period)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

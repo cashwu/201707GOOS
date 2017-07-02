@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using FluentAssertions;
 using GOOS_Sample.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GOOS_Sample.Models;
@@ -27,6 +30,34 @@ namespace GOOS_SampleTests.Controllers
 
             budgetServiceStub.Received()
                 .Create(Arg.Is<BudgetAddViewModel>(x => x.Amount == 2000 && x.Month == "2017-02"));
+        }
+
+        [TestMethod]
+        public void QueryTest()
+        {
+            this._budgetController = new BudgetController(budgetServiceStub);
+
+            budgetServiceStub.TotalBudget(new Period(new DateTime(2017, 4, 5), new DateTime(2017, 4, 14)))
+                .ReturnsForAnyArgs(888);
+
+
+            var condition = new BudgetQueryViewModel
+            {
+                StartDate = "2017-04-05",
+                EndDate = "2017-04-15"
+            };
+
+            var result = _budgetController.Query(condition) as ViewResult;
+            var actual = result.Model as BudgetQueryViewModel;
+
+            var expected = new BudgetQueryViewModel
+            {
+                StartDate = "2017-04-05",
+                EndDate = "2017-04-15",
+                Amount = 888
+            };
+
+            actual.ShouldBeEquivalentTo(expected);
         }
     }
 }
