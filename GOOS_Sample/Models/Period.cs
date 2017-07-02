@@ -12,5 +12,7 @@ namespace GOOS_Sample.Models
 
         public DateTime EndDate { get; }
         public DateTime StartDate { get; }
+        public string StartDateString => StartDate.ToString("yyyy-MM");
+        public string EndDateString => EndDate.ToString("yyyy-MM");
     }
 }

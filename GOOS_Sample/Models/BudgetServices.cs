@@ -47,7 +47,14 @@ namespace GOOS_Sample.Models
         {
             return budgetRepository
                 .ReadAll()
+                .Where(a => IsBetweenPeriod(period, a))
                 .Sum(a => a.GetOverlappingAmount(period));
+        }
+
+        private bool IsBetweenPeriod(Period period, Budgets budgets)
+        {
+            return string.Compare(budgets.YearMonth, period.StartDateString, StringComparison.Ordinal) >= 0
+                   && string.Compare(budgets.YearMonth, period.EndDateString, StringComparison.Ordinal) <= 0;
         }
     }
 }
