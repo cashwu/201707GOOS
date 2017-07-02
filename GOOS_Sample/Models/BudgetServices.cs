@@ -43,7 +43,7 @@ namespace GOOS_Sample.Models
 
         public decimal TotalBudget(Period period)
         {
-            throw new NotImplementedException();
+            return 20000;
         }
     }
 }

@@ -40,7 +40,6 @@ namespace GOOS_SampleTests.Controllers
             budgetServiceStub.TotalBudget(new Period(new DateTime(2017, 4, 5), new DateTime(2017, 4, 14)))
                 .ReturnsForAnyArgs(888);
 
-
             var condition = new BudgetQueryViewModel
             {
                 StartDate = "2017-04-05",
