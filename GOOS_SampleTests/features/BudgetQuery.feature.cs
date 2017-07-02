@@ -97,6 +97,84 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Query budget within 3 month")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BudgetQuery")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("web")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("CleanBudgets")]
+        public virtual void QueryBudgetWithin3Month()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query budget within 3 month", new string[] {
+                        "CleanBudgets"});
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+        testRunner.Given("go to query budget page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Amount",
+                        "YearMonth"});
+            table2.AddRow(new string[] {
+                        "6200",
+                        "2017-03"});
+            table2.AddRow(new string[] {
+                        "9000",
+                        "2017-04"});
+            table2.AddRow(new string[] {
+                        "3100",
+                        "2017-05"});
+#line 17
+        testRunner.And("Budget table existed budget", ((string)(null)), table2, "And ");
+#line 22
+        testRunner.When("query from \"2017-03-22\" to \"2017-05-05\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+        testRunner.Then("show budget 11500.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Query budget within 3 month, there are 2 month out of period")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BudgetQuery")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("web")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("CleanBudgets")]
+        public virtual void QueryBudgetWithin3MonthThereAre2MonthOutOfPeriod()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query budget within 3 month, there are 2 month out of period", new string[] {
+                        "CleanBudgets"});
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line 27
+        testRunner.Given("go to query budget page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Amount",
+                        "YearMonth"});
+            table3.AddRow(new string[] {
+                        "555",
+                        "2017-02"});
+            table3.AddRow(new string[] {
+                        "6200",
+                        "2017-03"});
+            table3.AddRow(new string[] {
+                        "9000",
+                        "2017-04"});
+            table3.AddRow(new string[] {
+                        "3100",
+                        "2017-05"});
+            table3.AddRow(new string[] {
+                        "1234",
+                        "2017-06"});
+#line 28
+        testRunner.And("Budget table existed budget", ((string)(null)), table3, "And ");
+#line 35
+        testRunner.When("query from \"2017-03-22\" to \"2017-05-05\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+        testRunner.Then("show budget 11500.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
