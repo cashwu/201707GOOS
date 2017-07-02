@@ -35,7 +35,10 @@ namespace GOOS_Sample.Models
 
         public List<Budgets> ReadAll()
         {
-            throw new NotImplementedException();
+            using (var db = new NorthwindEntities())
+            {
+                return db.Budgets.ToList();
+            }
         }
     }
 }

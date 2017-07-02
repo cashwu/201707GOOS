@@ -78,7 +78,7 @@ namespace GOOS_SampleTests.Models
             var amount = this.budgetServices.TotalBudget(
                 new Period(
                     new DateTime(2017, 4, 5), 
-                    new DateTime(2017, 4, 15)));
+                    new DateTime(2017, 4, 14)));
 
             var expected = 3000;
             amount.ShouldBeEquivalentTo(expected);
