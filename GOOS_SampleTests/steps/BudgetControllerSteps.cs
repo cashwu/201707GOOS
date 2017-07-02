@@ -68,5 +68,21 @@ namespace GOOS_SampleTests.steps
         {
             return "updated successfully";
         }
+
+        [When(@"query")]
+        public void WhenQuery(Table table)
+        {
+            var model = table.CreateInstance<BudgetQueryViewModel>();
+            var result = this._budgetController.Query(model);
+            ScenarioContext.Current.Set<ActionResult>(result);
+        }
+
+        [Then(@"ViewData\.Model should be")]
+        public void ThenViewData_ModelShouldBe(Table table)
+        {
+            var result = ScenarioContext.Current.Get<ActionResult>() as ViewResult;
+            var model = result.Model as BudgetQueryViewModel;
+            table.CompareToInstance(model);
+        }
     }
 }
