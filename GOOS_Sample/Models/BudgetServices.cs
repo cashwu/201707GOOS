@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GOOS_Sample.Models.ViewModels;
 
@@ -44,20 +45,10 @@ namespace GOOS_Sample.Models
 
         public decimal TotalBudget(Period period)
         {
-            var budgets = budgetRepository.ReadAll();
-            var budget = budgets.ElementAt(0);
-
-            var daysOfBudgets = DateTime.DaysInMonth(
-                Convert.ToInt16(budget.YearMonth.Split('-')[0]),
-                Convert.ToInt16(budget.YearMonth.Split('-')[1]));
-
-            var dailyAmount = budget.Amount / daysOfBudgets;
-
-            var daysOfPeriod = new TimeSpan(period.EndDate.AddDays(1).Ticks - period.StartDate.Ticks).Days;
-
-            var result = dailyAmount * daysOfPeriod;
-
-            return result;
+            return budgetRepository
+                .ReadAll()
+                .ElementAt(0)
+                .GetOverlappingAmount(period);
         }
     }
 }

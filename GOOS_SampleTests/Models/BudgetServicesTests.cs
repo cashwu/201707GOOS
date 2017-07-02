@@ -61,7 +61,7 @@ namespace GOOS_SampleTests.Models
         }
 
         [TestMethod]
-        public void TotalBudgetTest()
+        public void TotalBudgetTest_Period_of_single_month()
         {
             this.budgetServices = new BudgetServices(budgetRepositoryStub);
 
