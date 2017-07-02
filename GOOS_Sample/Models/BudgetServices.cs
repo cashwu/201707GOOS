@@ -47,8 +47,7 @@ namespace GOOS_Sample.Models
         {
             return budgetRepository
                 .ReadAll()
-                .ElementAt(0)
-                .GetOverlappingAmount(period);
+                .Sum(a => a.GetOverlappingAmount(period));
         }
     }
 }
