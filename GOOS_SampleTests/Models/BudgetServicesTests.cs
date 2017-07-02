@@ -155,5 +155,26 @@ namespace GOOS_SampleTests.Models
             var expected = 9000;
             amount.ShouldBeEquivalentTo(expected);
         }
+
+        [TestMethod]
+        public void TotalBudgetTest_Period_StartDate_over_month_when_two_months_budget()
+        {
+            this.budgetServices = new BudgetServices(budgetRepositoryStub);
+
+            budgetRepositoryStub.ReadAll()
+                .ReturnsForAnyArgs(new List<Budgets>
+                {
+                    new Budgets { YearMonth = "2017-03", Amount = 3100 },
+                    new Budgets { YearMonth = "2017-04", Amount = 9000 }
+                });
+
+            var amount = this.budgetServices.TotalBudget(
+                new Period(
+                    new DateTime(2017, 3, 22),
+                    new DateTime(2017, 4, 30)));
+
+            var expected = 10000;
+            amount.ShouldBeEquivalentTo(expected);
+        }
     }
 }
