@@ -23,10 +23,29 @@ namespace GOOS_Sample.Models
 
         private static int GetOverlappingDays(this Budgets budget, Period period)
         {
-            var endBoundary = period.EndDate.AddDays(1);
+            var endBoundary = period.EndDate;
+
+            if (endBoundary > LastDay(budget.YearMonth))
+            {
+                endBoundary = LastDay(budget.YearMonth);
+            }
+
             var startBoundary = GetStartBoundary(budget, period);
 
-            return new TimeSpan(endBoundary.Ticks - startBoundary.Ticks).Days; 
+            return new TimeSpan(endBoundary.AddDays(1).Ticks - startBoundary.Ticks).Days; 
+        }
+
+        private static DateTime LastDay(string yearMonth)
+        {
+            int daysInMonth = DaysInMonth(yearMonth);
+            return DateTime.Parse($"{yearMonth}-{daysInMonth}");
+        }
+
+        private static int DaysInMonth(string yearMonth)
+        {
+            return DateTime.DaysInMonth(
+                Convert.ToInt16(yearMonth.Split('-')[0]), 
+                Convert.ToInt16(yearMonth.Split('-')[1]));
         }
 
         private static DateTime GetStartBoundary(Budgets budget, Period period)
