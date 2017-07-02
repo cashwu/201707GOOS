@@ -213,5 +213,29 @@ namespace GOOS_SampleTests.Models
             var expected = 11500;
             amount.ShouldBeEquivalentTo(expected);
         }
+
+        [TestMethod]
+        public void TotalBudgetTest_budget_without_overlapping_with_period()
+        {
+            this.budgetServices = new BudgetServices(budgetRepositoryStub);
+
+            budgetRepositoryStub.ReadAll()
+                .ReturnsForAnyArgs(new List<Budgets>
+                {
+                    new Budgets
+                    {
+                        YearMonth = "2018-04",
+                        Amount = 9000
+                    }
+                });
+
+            var amount = this.budgetServices.TotalBudget(
+                new Period(
+                    new DateTime(2017, 3, 22),
+                    new DateTime(2017, 4, 30)));
+
+            var expected = 0;
+            amount.ShouldBeEquivalentTo(expected);
+        }
     }
 }
