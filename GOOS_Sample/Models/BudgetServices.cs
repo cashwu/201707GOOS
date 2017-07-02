@@ -20,24 +20,34 @@ namespace GOOS_Sample.Models
 
             if (budget == null)
             {
-                budgetRepository.Save(new Budgets
-                {
-                    Amount = model.Amount,
-                    YearMonth = model.Month
-                });
-
-                var handler = this.Created;
-                handler?.Invoke(this, EventArgs.Empty);
+                AddBudget(model);
             }
             else
             {
-                budget.Amount = model.Amount;
-
-                this.budgetRepository.Save(budget);
-
-                var handler = this.Updated;
-                handler?.Invoke(this, EventArgs.Empty);
+                UpdateBudget(model, budget);
             }
+        }
+
+        private void UpdateBudget(BudgetAddViewModel model, Budgets budget)
+        {
+            budget.Amount = model.Amount;
+
+            this.budgetRepository.Save(budget);
+
+            var handler = this.Updated;
+            handler?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void AddBudget(BudgetAddViewModel model)
+        {
+            budgetRepository.Save(new Budgets
+            {
+                Amount = model.Amount,
+                YearMonth = model.Month
+            });
+
+            var handler = this.Created;
+            handler?.Invoke(this, EventArgs.Empty);
         }
 
         public event EventHandler Created;

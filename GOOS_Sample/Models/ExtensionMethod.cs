@@ -41,8 +41,7 @@ namespace GOOS_Sample.Models
 
         private static DateTime LastDay(this string yearMonth)
         {
-            int daysInMonth = DaysInMonth(yearMonth);
-            return DateTime.Parse($"{yearMonth}-{daysInMonth}");
+            return DateTime.Parse($"{yearMonth}-{DaysInMonth(yearMonth)}");
         }
 
         private static int DaysInMonth(string yearMonth)
